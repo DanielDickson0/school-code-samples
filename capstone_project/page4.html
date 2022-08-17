@@ -1,0 +1,209 @@
+<!doctype html>
+<html>
+<head>
+    <title>Apply for Membership</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        window.onload = function () {
+            //var db = openDatabase('ProjectDB', '1.0', 'Project Database', 1048576);
+
+            //var id;
+            //var firstName;
+            //var midInitial;
+            //var lastName;
+            //var suffix;
+            //var streetAddress;
+            //var streetAddress2;
+            //var city;
+            //var stateProvince;
+            //var country;
+            //var zip;
+            //var homePhone;
+            //var workPhone;
+            //var email;
+
+            document.getElementById('cancelButton').onclick = function () { cancelMessage() };
+            document.getElementById('submitButton').onclick = function () { submitMessage() };
+            document.getElementById('clearAllButton').onclick = function () { clearAllFields() };
+
+            function cancelMessage() {
+                document.getElementById('prompt').textContent = 'Post cancelled.';
+            }
+
+            var submitChecks = Array("firstNameBox", "lastNameBox", "streetAddressBox", "cityBox", "stateBox", "countryBox", "zipBox", "homePhoneBox", "emailBox");
+            var checkTriggered = false;
+
+            function submitMessage() {
+                checkTriggered = false;
+                for (var i = 0; i < submitChecks.length; i++) {
+                    if (document.getElementById(submitChecks[i]).value == '') {
+                        document.getElementById('prompt').textContent = 'More info is required.';
+                        checkTriggered = true;
+                    }
+                }
+                if (checkTriggered == false) {
+                    document.getElementById('prompt').textContent = 'Submission successful.';
+
+                    //firstName = document.getElementById('firstNameBox');
+                    //midInitial = document.getElementById('middleInitialBox');
+                    //lastName = document.getElementById('lastNameBox');
+                    //suffix = document.getElementById('suffixBox');
+                    //streetAddress = document.getElementById('streetAddressBox');
+                    //streetAddress2 = document.getElementById('streetAddressBox2');
+                    //city = document.getElementById('cityBox');
+                    //stateProvince = document.getElementById('stateBox');
+                    //country = document.getElementById('countryBox');
+                    //zip = document.getElementById('zipBox');
+                    //homePhone = document.getElementById('homePhoneBox');
+                    //workPhone = document.getElementById('workPhoneBox');
+                    //email = document.getElementById('emailBox');
+
+                    //db.transaction(function (tx) {
+                    //    id = tx.executeSql('COUNT(ApplicationID) FROM EmployeeApplications') + 1;
+                    //    tx.executeSql('INSERT INTO EmployeeApplications (ApplicationID, FirstName, MidInitial, LastName, Suffix, StreetAddress, City, StateProvince, Country, ZIP, HomePhone, WorkPhone, Email) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', [id, firstName, midInitial, lastName, suffix, streetAddress, streetAddress2, city, stateProvince, country, zip, homePhone, workPhone, email]);
+                    //})
+                }
+            }
+
+            function clearAllFields() {
+                for (var i = 0; i < submitChecks.length; i++) {
+                    document.getElementById(submitChecks[i]).value = '';
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Apply for Membership</h1>
+    <form action="page4_entry.php" method="POST">
+        <h3>Name</h3>
+        <div class="row">
+            <div class="column first">
+                <label for="firstNameBox">First Name*</label>
+                <br>
+                <input type="text" id="firstNameBox" name="firstNameBox">
+            </div>
+            <div class="column buffer">
+                <br>
+            </div>
+            <div class="column second">
+                <label for="middleInitialBox">Mid. Initial</label>
+                <br>
+                <input type="text" id="middleInitialBox" name="middleInitialBox" maxlength="1">
+            </div>
+        </div>
+        <div class="row">
+            <div class="column first">
+                <label for="lastNameBox">Last Name*</label>
+                <br>
+                <input type="text" id="lastNameBox" name="lastNameBox">
+            </div>
+            <div class="column buffer">
+                <br>
+            </div>
+            <div class="column second">
+                <label for="suffixBox">Suffix</label>
+                <br>
+                <input type="text" id="suffixBox" name="suffixBox">
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <h3>Address</h3>
+        <label for="streetAddressBox">Street Address*</label>
+        <input type="text" id="streetAddressBox" name="streetAddressBox">
+        <label for="streetAddressBox2">Street Address (Line 2)</label>
+        <input type="text" id="streetAddressBox2" name="streetAddressBox2">
+        <br>
+        <div class="row">
+            <div class="column third">
+                <label for="cityBox">City*</label>
+                <br>
+                <input type="text" id="cityBox" name="cityBox">
+            </div>
+            <div class="column buffer">
+                <br>
+            </div>
+            <div class="column fourth">
+                <label for="stateBox">State*</label>
+                <br>
+                <input type="text" id="stateBox" name="stateBox" maxlength="2">
+            </div>
+            <div class="column buffer">
+                <br>
+            </div>
+            <div class="column fifth">
+                <label for="countryBox">Country*</label>
+                <br>
+                <input type="text" id="countryBox" name="countryBox">
+            </div>
+            <div class="column buffer">
+                <br>
+            </div>
+            <div class="column sixth">
+                <label for="zipBox">ZIP*</label>
+                <br>
+                <input type="text" id="zipBox" name="zipBox" maxlength="5" pattern="[0-9]{5}">
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <h3>Contact Info</h3>
+        <div class="row">
+            <div class="column seventh">
+                <label for="homePhoneBox">Home Phone*</label>
+                <br>
+                <input type="tel" id="homePhoneBox" name="homePhoneBox">
+            </div>
+            <div class="column buffer">
+                <br>
+            </div>
+            <div class="column seventh">
+                <label for="workPhoneBox">Work Phone</label>
+                <br>
+                <input type="tel" id="workPhoneBox" name="workPhoneBox">
+            </div>
+            <div class="column buffer">
+                <br>
+            </div>
+            <div class="column eighth">
+                <label for="emailBox">Email*</label>
+                <br>
+                <input type="email" id="emailBox" name="emailBox">
+            </div>
+            <div class="column buffer">
+                <br>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <button id="clearAllButton">Clear All</button>
+        <br>
+        <br>
+        <br>
+        <div class="row">
+            <div class="column ninth">
+                <button id="cancelButton">Cancel</button>
+            </div>
+            <div class="column second">
+                <input type="submit" id="submitButton" name="save" value="Submit Application">
+            </div>
+        </div>
+    </form>
+    <br>
+    <br>
+    <p id="prompt"></p>
+    <br>
+    <p id="disclaimer">* indicates a required field</p>
+</body>
+</html>

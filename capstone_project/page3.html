@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Report Abuse</title>
+        <link rel="stylesheet" href="styles.css">
+        <script>
+            window.onload = function () {
+                document.getElementById('cancelButton').onclick = function () { cancelMessage() };
+                document.getElementById('submitButton').onclick = function () { submitMessage() };
+                document.getElementById('clearAllButton').onclick = function () { clearAllFields() };
+
+                function cancelMessage() {
+                    document.getElementById('prompt').textContent = 'Report cancelled.';
+                }
+
+                function submitMessage() {
+                    if (document.getElementById('threadIDBox').value == '') {
+                        document.getElementById('prompt').textContent = 'Please enter a valid ID.';
+                    } else {
+                        document.getElementById('prompt').textContent = 'Submission successful. Your report will be reviewed shortly.';
+                    }
+                }
+
+                function clearAllFields() {
+                    document.getElementById('bodyTextBox').value = '';
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Report Abuse</h1>
+        <form action="page3_entry.php" method="post">
+            <h3>Thread ID*</h3>
+            <input type="text" id="threadIDBox" name="threadIDBox" pattern="[0-9]{1,}">
+            <br>
+            <br>
+            <h3>Reason for Report*</h3>
+            <select name="reasons" id="reasons">
+                <option value="spam">Spam/Misleading</option>
+                <option value="harassment">Harassment/Bullying</option>
+                <option value="graphicImagery">Graphic Text/Imagery</option>
+                <option value="sexualContent">Sexually Explicit Content</option>
+                <option value="scams">Scams</option>
+                <option value="filterBreaking">Filter-breaking</option>
+                <option value="other">Other</option>
+            </select>
+            <br>
+            <br>
+            <h3>Additional Info</h3>
+            <textarea id="bodyTextBox" name="bodyTextBox" rows="5"></textarea>
+            <br>
+            <br>
+            <button id="clearAllButton">Clear All</button>
+            <br>
+            <br>
+            <br>
+            <div class="row">
+                <div class="column ninth">
+                    <button id="cancelButton">Cancel</button>
+                </div>
+                <div class="column second">
+                    <input type="submit" id="submitButton" name="save" value="Submit Application">
+                </div>
+            </div>
+        </form>
+        <br>
+        <br>
+        <p id="prompt"></p>
+        <br>
+        <p id="disclaimer">* indicates a required field</p>
+    </body>
+</html>

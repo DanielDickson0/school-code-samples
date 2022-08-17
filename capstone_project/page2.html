@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Create Concept</title>
+        <link rel="stylesheet" href="styles.css">
+        <script>
+            window.onload = function () {
+                document.getElementById('cancelButton').onclick = function () { cancelMessage() };
+                document.getElementById('submitButton').onclick = function () { submitMessage() };
+                document.getElementById('clearAllButton').onclick = function () { clearAllFields() };
+
+                function cancelMessage() {
+                    document.getElementById('prompt').textContent = 'Post cancelled.';
+                }
+
+                function submitMessage() {
+                    if (document.getElementById('titleTextBox').value == '') {
+                        document.getElementById('prompt').textContent = 'Title is required.';
+                    } else if (document.getElementById('bodyTextBox').value == '' && document.getElementById('attachments').value == '') {
+                        document.getElementById('prompt').textContent = 'Please input either an attachment or some text.';
+                    } else {
+                        document.getElementById('prompt').textContent = 'Submission successful.';
+                    }
+                }
+
+                function clearAllFields() {
+                    document.getElementById('titleTextBox').value = '';
+                    document.getElementById('bodyTextBox').value = '';
+                    document.getElementById('attachments').value = '';
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Create Concept</h1>
+        <form action="page2_entry.php" method="post">
+            <h3>Title*</h3>
+            <input type="text" id="titleTextBox" name="titleTextBox">
+            <br>
+            <br>
+            <h3>Description and Attachments*</h3>
+            <textarea id="bodyTextBox" name="bodyTextBox" rows="5"></textarea>
+            <br>
+            <br>
+            <input type="file" id="attachments" name="attachments" multiple>
+            <button id="clearAllButton">Clear All</button>
+            <br>
+            <br>
+            <br>
+            <div class="row">
+                <div class="column ninth">
+                    <button id="cancelButton">Cancel</button>
+                </div>
+                <div class="column second">
+                    <input type="submit" id="submitButton" name="save" value="Submit Application">
+                </div>
+            </div>
+        </form>
+        <br>
+        <br>
+        <p id="prompt"></p>
+        <br>
+        <p id="disclaimer">* indicates a required field</p>
+    </body>
+</html>

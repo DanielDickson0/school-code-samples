@@ -1,0 +1,85 @@
+h1 {
+  color: #ffffff;
+  text-align: center;
+  font-family: Calibri, Arial, sans-serif;
+}
+h3 {
+  color: #ffffff;
+  font-family: Calibri, Arial, sans-serif;
+}
+label {
+  color: #ffffff;
+  font-family: Calibri, Arial, sans-serif;
+}
+#attachments {
+  color: #ffffff;
+  font-family: Calibri, Arial, sans-serif;
+}
+#prompt {
+  color: #ffffff;
+  font-family: Calibri, Arial, sans-serif;
+}
+#disclaimer {
+  color: #808080;
+  font-family: Calibri, Arial, sans-serif;
+}
+body {
+  background-color: #000820;
+  font-family: Calibri, Arial, sans-serif;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+textarea {
+  width: 100%;
+}
+input {
+  width: 100%;
+}
+
+
+.column {
+    float: left;
+}
+
+.first {
+    width: 65%;
+}
+
+.second {
+    width: 30%;
+}
+
+.third {
+    width: 40%;
+}
+
+.fourth {
+    width: 10%;
+}
+
+.fifth {
+    width: 20%;
+}
+
+.sixth {
+    width: 15%;
+}
+
+.seventh {
+    width: 20%;
+}
+
+.eighth {
+    width: 50%;
+}
+
+.ninth {
+    width: 10%;
+}
+
+.buffer {
+    width: 5%;
+}
